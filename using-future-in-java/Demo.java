@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.concurrent.*;
 
 /**
- * Demo class - makes an asynchronous call.
+ * Demo class
  */
 public class Demo {
 	private static ExecutorService pool;
@@ -21,23 +21,18 @@ public class Demo {
 		if (args.length > 0) {
 			try {
 				Future<String> content = getContent(args[0]);
-                
 				while(!content.isDone()) {
 					//TODO: do something else as content is being retrieved.
 				}
-                
                 String html = content.get(); // result of asynchronous call.
-                
                 if (!html.isEmpty()) {
                     System.out.println("\n>HTML content:\n\n" + html + "\n");
                 } else {
-                    System.out.println("\nIt appears that the " 
-                                       + "retrieved content is empty.\n");
+                    System.out.println("\nIt appears that the retrieved content is empty.\n");
                 }
 				pool.shutdown(); // kill thread-pool.
 			}catch(IOException ex) {
-				System.err.println("An exception occurred - "
-                                   + ex.getMessage());
+				System.err.println("An exception occurred - " + ex.getMessage());
 			}
 		} else {
 			System.err.println("\nUsage:\n\n> java Demo http://google.com\n");
@@ -59,8 +54,7 @@ public class Demo {
 				StringBuilder content = new StringBuilder();
 				URLConnection connection  = new URL(url).openConnection();
 				// obtain input stream read from the open connection
-				BufferedReader br = new BufferedReader(
-                    new InputStreamReader(connection.getInputStream()));
+				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 				
 				String line;
 				while ((line = br.readLine()) != null) {
