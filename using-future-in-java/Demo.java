@@ -26,7 +26,7 @@ public class Demo {
 					//TODO: do something else as content is being retrieved.
 				}
                 
-                String html = content.get(); // retrieves result of asynchronous call.
+                String html = content.get();
                 
                 if (!html.isEmpty()) {
                     System.out.println("\n>HTML content:\n\n" + html + "\n");
