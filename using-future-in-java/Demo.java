@@ -23,7 +23,6 @@ public class Demo {
 				Future<String> content = getContent(args[0]);
                 
 				while(!content.isDone()) {
-                    //the magic happens here.
 					//TODO: do something else as content is being retrieved.
 				}
                 
@@ -32,7 +31,7 @@ public class Demo {
                 if (!html.isEmpty()) {
                     System.out.println("\n>HTML content:\n\n" + html + "\n");
                 } else {
-                    System.out.println("\nIt appears that the retrieved content is empty.\n")
+                    System.out.println("\nIt appears that the retrieved content is empty.\n");
                 }
 				pool.shutdown(); // kill thread-pool.
 			}catch(IOException ex) {
