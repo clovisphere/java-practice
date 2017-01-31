@@ -12,9 +12,9 @@ public class Demo {
 	private static ExecutorService pool;
 	
 	/**
-	 * starts program execution.
-     * @param args - command-line arguments.
-	 * @throws Exception - if 'InterruptedException' is thrown while invoking
+	 *	starts program execution.
+     *	@param args - command-line arguments.
+	 *	@throws Exception - if 'InterruptedException' is thrown while invoking
 	 *					   Future.get().
 	 */
 	public static void main(String[] args) throws Exception {
@@ -26,16 +26,18 @@ public class Demo {
 					//TODO: do something else as content is being retrieved.
 				}
                 
-                String html = content.get(); // retrieves result of asynchronous call.
+                String html = content.get();
                 
                 if (!html.isEmpty()) {
                     System.out.println("\n>HTML content:\n\n" + html + "\n");
                 } else {
-                    System.out.println("\nIt appears that the retrieved content is empty.\n");
+                    System.out.println("\nIt appears that the " 
+						+ "retrieved content is empty.\n");
                 }
 				pool.shutdown(); // kill thread-pool.
 			}catch(IOException ex) {
-				System.err.println("An exception occurred - " + ex.getMessage());
+				System.err.println("An exception occurred - "
+					+ ex.getMessage());
 			}
 		} else {
 			System.err.println("\nUsage:\n\n> java Demo http://google.com\n");
@@ -58,7 +60,7 @@ public class Demo {
 				URLConnection connection  = new URL(url).openConnection();
 				// obtain input stream read from the open connection
 				BufferedReader br = new BufferedReader(
-                    new InputStreamReader(connection.getInputStream()));
+					new InputStreamReader(connection.getInputStream()));
 				
 				String line;
 				while ((line = br.readLine()) != null) {
