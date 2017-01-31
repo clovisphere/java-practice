@@ -47,7 +47,7 @@ public class Demo {
 	
 	/**
 	 * retrieves 'html' content from a given url.
-	 * @param url - the site to retrieve content from
+	 * @param url - the site to retrieve content from.
 	 * @return a Future.
 	 */
 	private static Future<String> getContent(String url) throws IOException {
